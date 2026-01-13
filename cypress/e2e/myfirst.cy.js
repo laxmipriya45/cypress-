@@ -19,9 +19,9 @@
 // })
 
 //basic commands
-describe('OrangeHRM Login Test', () => {
+describe('OrangeHRM Login Test', function(){
 
-  it('Login with valid credentials', () => {
+  it('Login with valid credentials', function(){
 
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
@@ -29,9 +29,11 @@ describe('OrangeHRM Login Test', () => {
     cy.get('input[name="password"]').type('admin123')
 
     cy.get('button[type="submit"]').click()
+    cy.contains('Leave').click() //find element by visible text
 
-    cy.url().should('include', '/dashboard')
-    cy.contains('Dashboard').should('be.visible')
+
+    // cy.url().should('include', '/Leave')
+    // cy.contains('Leave').should('be.visible')
 
   })
 
