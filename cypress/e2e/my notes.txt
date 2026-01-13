@@ -1,0 +1,9 @@
+Test Execution
+For execution from the command line, run the command given below −
+
+./node_modules/.bin/cypress run
+Here, all the files within the integration folder get triggered.
+
+For execution from the Test Runner, run the command stated below −
+
+./node_modules/.bin/cypress open
