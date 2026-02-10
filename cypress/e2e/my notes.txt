@@ -7,3 +7,24 @@ Here, all the files within the integration folder get triggered.
 For execution from the Test Runner, run the command stated below −
 
 ./node_modules/.bin/cypress open
+
+
+---assertion is a check/verification that confirms something is true.--confirming something in your test.
+there are 2 types of assertions
+1. implicit assertion
+    --In this we have  2 keywords
+    .should
+    .and 
+
+these can be also supported 
+include
+contain
+eq 
+exist
+
+2. explicit assertion
+     .expect
+     .assert
+
+     -----------------------------------cy.contains()--->>>visible text only
+     ----------------------cy.get()-->id, class, attribute

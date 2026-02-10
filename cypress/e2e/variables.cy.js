@@ -23,6 +23,7 @@
 
 //alias
 
+
 describe('Alias demo', () => {
   it('simple alias', () => {
     //cy.visit('https://opensource-demo.orangehrmlive.com')
