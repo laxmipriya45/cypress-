@@ -14,4 +14,15 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+//import './commands'
+
+// Cypress.on('log:added', (log) => {
+//   if (log.displayName === 'xhr') {
+//     log.set('visible', false)
+//   }
+// })
+// cypress/support/e2e.js
+
+beforeEach(() => {
+  cy.intercept('**', { log: false })   // hides most network logs
+})

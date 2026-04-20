@@ -3,7 +3,7 @@
 
 //     cy.visit('https://opensource-demo.orangehrmlive.com')
 
-//     // Implicit Assertions (should / and) - on element directly
+//     // Assertions (should / and) - on element directly
 //     cy.get('[name="username"]').should('be.visible').and('be.enabled')
 //     cy.get('[name="password"]').should('be.visible')
 //     cy.get('button[type="submit"]').should('be.visible').and('be.enabled')
@@ -55,20 +55,20 @@
 //   })
 // })
 
-describe("OrangeHRM Login", () => {
+// describe("OrangeHRM Login", () => {
 
-  it("Login to OrangeHRM", () => {
+//   it("Login to OrangeHRM", () => {
 
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+//     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
-    cy.get('input[name="username"]').type('Admin')
-    cy.get('input[name="password"]').type('admin123')
+//     cy.get('input[name="username"]').type('Admin')
+//     cy.get('input[name="password"]').type('admin123')
 
-    cy.get('button[type="submit"]').click()
-    cy.contains('Leave').click()
-  })
+//     cy.get('button[type="submit"]').click()
+//     cy.contains('Leave').click()
+//   })
 
-})
+// })
 
 // describe("nopcommerce",function()
 // {
@@ -95,3 +95,28 @@ describe("OrangeHRM Login", () => {
 
 //         })
 // })
+
+
+// describe('orangehrm demo', ()=>
+// {
+//   it('login to the portal',()=>
+//   {
+//     cy.visit('https://opensource-demo.orangehrmlive.com')
+//     cy.get('input[name="username"]').type('Admin')
+//     cy.get('input[name="password"]').type('admin123')
+//     cy.get('button[type="submit"]').click()
+//   })
+// })
+
+
+describe("sauscedemo",()=>
+{
+  it('login to the sausedemo',()=>
+  {
+    cy.visit('https://www.saucedemo.com/')
+      cy.get('#user-name').type('standard_user')
+      cy.get('#password').type('secret_sauce')
+      cy.get('#login-button').click();
+    
+  })
+})

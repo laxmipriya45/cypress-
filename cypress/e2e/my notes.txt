@@ -4,9 +4,21 @@ For execution from the command line, run the command given below −
 ./node_modules/.bin/cypress run
 Here, all the files within the integration folder get triggered.
 
+To run specific file in the UI:
+npx cypress run --headed --browser chrome --spec "cypress/e2e/review2.cy.js" 
+
 For execution from the Test Runner, run the command stated below −
 
 ./node_modules/.bin/cypress open
+
+
+--Run Test in Headless Mode (Without UI)
+npx cypress run
+
+
+To run specific file:
+
+npx cypress run --spec "cypress/e2e/yourTest.cy.js"
 
 
 ---assertion is a check/verification that confirms something is true.--confirming something in your test.
@@ -28,3 +40,102 @@ exist
 
      -----------------------------------cy.contains()--->>>visible text only
      ----------------------cy.get()-->id, class, attribute
+     =--------------------------------------------------------------------------------------------------------
+
+--Headless mode means running a browser without opening its graphical UI (window).
+     The browser runs in the background
+      You cannot see it
+      But it executes all test steps
+
+--npx cypress run
+
+     Headless mode means executing browser tests without opening the browser UI. It runs in the background and is mainly used for faster automation and CI/CD pipelines.
+
+     ==Normal Mode
+--->>>Browser window open
+-----------------------------------------------------------------------
+%%%%%%%%%%
+important:
+           npx cypress run --headed --browser chrome --spec "cypress/e2e/poc2.cy.js" ---for specific file automaticcally it opens and closes
+             Only that file will execute
+            Browser will open
+            After execution it will close automatically
+
+--------------------------CYPRESS architecture-----------------
+Cypress runs partly in Node.js and partly in the browser.
+Tests execute inside the browser, while a proxy server in Node.js handles network communication.
+It uses WebSocket for real-time interaction, which makes it fast and reliable.
+
+----------------------------------------------------------------
+
+ALerts:  There are 3 main alert types (methods):
+1.alert()
+2.confirm()
+3.prompt()
+
+---Main Cypress Alert Methods / Events
+1.window:alert-->   cy.on('window:alert', (text) => {  //only OK
+                    expect(text).to.contains('Hello')
+                    })
+2.window:confirm-->  cy.on('window:confirm', (text) => {  // OK/Cancel
+                         return true   //    
+                         })   
+3.window:prompt-->  cy.window().then((win) => {              // input box
+                    cy.stub(win, 'prompt').returns('Laxmi')
+                    })
+//An alert is a popup message displayed by the browser. There are three types of alerts: alert, confirm, and prompt.
+In Cypress, alerts are handled using cy.on('window:alert') and cy.on('window:confirm').
+We capture the alert message and verify it using assertions like expect().to.contains().
+
+----Alerts are browser popups. In Cypress, we handle them using cy.on() and verify the message using expect().
+-------------------------------------------------------------------------------------------------
+
+1. Tabs: are used to switch between different sections of content.
+----------------------------------------------------------------------
+2.checkbox: allows the user to select or deselect one or more options.or check or uncheck options.
+-----------------------------------------------------------------------------------------
+3.dropdown: allows the user to select a single option from a list.
+---------------------------------------------------------------------------------------
+4.child window: A child window is a new browser tab or window opened from the parent page.
+
+target="_blank"--> in html used to  open the link in another tab but whereas in cypress it doesnot support multiple tabs to open directly
+****cypress doesnt open multiple tabs so that's why we remove target there*****
+
+Final Summary
+Cypress cannot handle multiple tabs
+New tabs come from target="_blank"
+Use .invoke('removeAttr', 'target') to remove it -----------------invoke = calling a function on the element
+Now link opens in same tab
+Then you can:
+verify URL
+perform actions
+go back using cy.go('back')
+------------------------------------------------
+What You Should Remember (Interview Points )
+Cypress runs in single browser tab
+Uses jQuery methods like removeAttr()
+invoke() is used to call jQuery functions
+This is the standard workaround for child windows  <a href="/windows/new" ,="" target="_blank">Click Here</a> #content > div > a  //*[@id="content"]/div/a
+-----------------------------------------------------------
+HIDDEN Elements:
+               “Cypress handles hidden elements using invoke('show') or force:true, depending on whether the element is present in DOM or not.”
+----------------------------------------------------------------------------
+Cookies:   are small pieces of data stored in the browser that save user information like login sessions and preferences
+
+--------------------------------------------------------------------------------------------------
+
+
+
+CUCUMBER FRAMEWORK----
+In Cucumber, we write test cases using Gherkin language, which uses keywords like:
+
+Given → Pre-condition (initial setup)
+When → Action (what user does)
+Then → Expected result (verification)
+
+
+Feature → What feature you are testing
+Scenario → One test case
+Given → Start
+When → Action
+Then → Result

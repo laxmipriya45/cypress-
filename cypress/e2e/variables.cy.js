@@ -24,13 +24,14 @@
 //alias
 
 
-describe('Alias demo', () => {
-  it('simple alias', () => {
-    //cy.visit('https://opensource-demo.orangehrmlive.com')
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.get('[name="username"]').as('u')  // alias
+// describe('Alias demo', () => {
+//   it('simple alias', () => {
+//     //cy.visit('https://opensource-demo.orangehrmlive.com')
+//     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+//     cy.get('[name="username"]').as('u')  // alias
 
-    cy.get('@u').type('Admin')           // use alias
-  })
-})
+//     cy.get('@u').type('Admin')           // use alias
+//   })
+// })
+
 

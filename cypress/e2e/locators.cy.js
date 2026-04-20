@@ -1,7 +1,7 @@
 describe('Simple Locator Demo', () => {
   it('Use basic CSS selectors', () => {
 
-    cy.visit('ttps://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     // 1) By class
     cy.get('.action-email').type('test@gmail.com')
 
